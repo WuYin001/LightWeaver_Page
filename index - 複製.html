@@ -384,45 +384,8 @@
       font-size: 20px;
       color: var(--text-dim);
       max-width: 640px;
-      margin: 0 auto 32px;
+      margin: 0 auto 48px;
       font-weight: 300;
-    }
-
-    .hero-sub br {
-      display: block;
-      margin-top: 8px;
-    }
-
-    .hero-highlight {
-      color: var(--accent-gold);
-      font-weight: 600;
-      font-size: 18px;
-    }
-
-    .hero-comparison {
-      margin: 40px auto;
-      max-width: 900px;
-    }
-
-    .hero-comparison .image-comparison {
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .hero-comparison-labels {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      margin-top: 16px;
-      font-size: 16px;
-      color: var(--text-dim);
-    }
-
-    .hero-comparison-labels .to-arrow {
-      color: var(--accent-gold);
-      font-size: 20px;
     }
 
     .hero-image {
@@ -1311,26 +1274,25 @@
     <div class="container">
       <div class="hero-badge animate-in">Blender Add-on</div>
       <h1 class="animate-in delay-1">
-        Light Driven <span class="gradient-text">Color Grading</span> for Blender
+        Light<span class="gradient-text">Weaver</span>
       </h1>
       <p class="hero-sub animate-in delay-2">
-        Create cinematic color grading directly in Blender.<br>
-        <span class="hero-highlight">No EXR. No Nuke. No Photoshop.</span>
+        Light driven color control for Blender — transform lighting into controllable color variations, directly in your compositor.
       </p>
 
-      <div class="hero-comparison animate-in delay-3">
-        <div class="image-comparison">
-          <img src="images/LightWeaver_After_1.webp" class="image-after" alt="After">
-          <img src="images/LightWeaver_Before_1.webp" class="image-before" id="heroBeforeImage" alt="Before">
-          <div class="slider-line" id="heroSliderLine"></div>
-          <div class="slider-button" id="heroSliderButton"></div>
-          <input type="range" min="0" max="100" value="50" class="slider-input" id="heroSliderInput">
-        </div>
-        <div class="hero-comparison-labels">
-          <span>Raw Render</span>
-          <span class="to-arrow">→</span>
-          <span class="gradient-text">Cinematic Color</span>
-        </div>
+      <div class="hero-image animate-in delay-4">
+        <img src="images/LightWeaver_After_1.webp">
+      </div>
+      
+      <div class="hero-video animate-in delay-3">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/BLXFQci64ow" 
+          title="LightWeaver Demo"
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
@@ -1902,23 +1864,6 @@ document.querySelectorAll('video').forEach(video => {
   video.addEventListener('loadeddata', matchHeight);
   video.addEventListener('loadedmetadata', matchHeight);
 });
-
-    // Hero Comparison Slider
-    (function() {
-      const slider = document.getElementById('heroSliderInput');
-      const beforeImage = document.getElementById('heroBeforeImage');
-      const sliderLine = document.getElementById('heroSliderLine');
-      const sliderButton = document.getElementById('heroSliderButton');
-
-      if (slider && beforeImage && sliderLine && sliderButton) {
-        slider.addEventListener('input', (e) => {
-          const value = e.target.value;
-          beforeImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
-          sliderLine.style.left = `${value}%`;
-          sliderButton.style.left = `${value}%`;
-        });
-      }
-    })();
 
     // Gallery Comparison Sliders
     (function() {
